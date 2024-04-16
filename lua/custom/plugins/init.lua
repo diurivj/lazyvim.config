@@ -1,4 +1,3 @@
--- You can add your own plugins here or in other files in this directory!
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
@@ -18,6 +17,14 @@ return {
       require('harpoon'):setup()
     end,
     keys = {
+      {
+        '<leader>p',
+        function()
+          local harpoon = require 'harpoon'
+          harpoon.ui:toggle_quick_menu(harpoon:list())
+        end,
+        desc = 'harpoon file list',
+      },
       {
         '<leader>A',
         function()
@@ -95,5 +102,13 @@ return {
         desc = 'Lazygit',
       },
     },
+  },
+
+  -- oil.nvim
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
 }
